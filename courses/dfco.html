@@ -97,112 +97,12 @@
 
                         <h4 class="title">Course Outline</h4>
                         <div class="content">
-                            <ul class="course-list">
-                                <li class="justify-content-between d-flex">
-                                    <p>Module I (part 1)</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module I (part 2)</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module II (part 1)</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module II (part 2)</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module III (part 1)</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module III (part 2)</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module IV</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module V (part 1)</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module V (part 2)</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module VI</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module VII </p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module VIII </p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-                                <li class="justify-content-between d-flex">
-                                    <p>Module IX</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
-
-                                <li class="justify-content-between d-flex">
-                                    <p>Module X</p>
-                                    <span>
-                                        <a class="btn text-uppercase" href="#">View Details</a>
-                                        <a class="btn text-uppercase" href="#">Download</a>
-                                    </span>
-                                </li>
+                            <ul class="course-list" id="moduleList">
+                                <!-- JavaScript will populate this list -->
                             </ul>
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-lg-4 right-contents">
                     <ul>
                         <li>
@@ -232,7 +132,8 @@
                             </a>
                         </li>
                     </ul>
-                    <a href="#" class="btn text-uppercase enroll">Download Now</a>
+                    <a href="https://onedrive.live.com/?authkey=%21AoB6kzpPCYgdO%5Fw&id=DA1E993B61CEA34F%21106&cid=DA1E993B61CEA34F"
+                        class="btn text-uppercase enroll">Download Now</a>
 
                     <h4 class="title">Reviews</h4>
                     <div class="content">
@@ -324,13 +225,65 @@
     <div id="footer-placeholder"></div>
     <!-- ================ End footer Area ================= -->
 
+
+    <script>
+        const moduleNames = [
+            "Module I (part 1)",
+            "Module I (part 2)",
+            "Module II (part 1)",
+            "Module II (part 2)",
+            "Module III (part 1)",
+            "Module III (part 2)",
+            "Module IV",
+            "Module V (part 1)",
+            "Module V (part 2)",
+            "Module VI",
+            "Module VII",
+            "Module VIII",
+            "Module IX",
+            "Module X"
+        ];
+
+        const moduleList = document.getElementById("moduleList");
+
+        for (let i = 0; i < moduleNames.length; i++) {
+            const moduleName = moduleNames[i];
+            const listItem = document.createElement("li");
+            listItem.className = "justify-content-between d-flex";
+            listItem.innerHTML = `
+                    <p>${moduleName}</p>
+                    <span>
+                        <button type="button" class="btn text-uppercase" data-toggle="modal" data-target="#mod${i + 1}">View Details</button>
+                        <img src="download.png" alt="Download icon" style="margin-left: 10px; cursor: pointer; width: 20px; height: 20px; ">
+                        <div id="mod${i + 1}" class="modal fade" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="display: block !important">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">DFCO Course material</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <iframe src="https://onedrive.live.com/embed?resid=DA1E993B61CEA34F%21110&authkey=!AKV_CtgrxETKWNw&em=2"
+                                            style="width: 100%; height: 80vh;" frameborder="0" scrolling="no" allowfullscreen title="${moduleName}"></iframe>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <img src="download_icon.png" alt="Download icon" style="width: 20px; height: 20px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                `;
+            moduleList.appendChild(listItem);
+        }
+    </script>
+
     <script src="../js/vendor/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
         integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>
     <script src="../js/vendor/bootstrap.min.js"></script>
-    <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
     <script src="../js/jquery.ajaxchimp.min.js"></script>
     <script src="../js/jquery.magnific-popup.min.js"></script>
     <script src="../js/parallax.min.js"></script>

@@ -124,24 +124,24 @@
 					</div>
 				</div>
 				<div class="col-lg-8">
-					<form class="form-area contact-form text-right" id="myForm" action="mail.php" method="post">
+					<form class="form-area contact-form text-right" id="myForm" method="post">
 						<div class="row">
 							<div class="col-lg-6 form-group">
-								<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Enter your name'"
+								<input name="name" id="name" placeholder="Enter your name"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
 									class="common-input mb-20 form-control" required="" type="text">
 
-								<input name="email" placeholder="Enter email address"
+								<input name="email" id="email" placeholder="Enter email address"
 									pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'"
 									class="common-input mb-20 form-control" required="" type="email">
 
-								<input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Enter subject'" class="common-input mb-20 form-control"
-									required="" type="text">
+								<input name="subject" id="subject" placeholder="Enter subject"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'"
+									class="common-input mb-20 form-control" required="" type="text">
 							</div>
 							<div class="col-lg-6 form-group">
-								<textarea class="common-textarea form-control" name="message"
+								<textarea class="common-textarea form-control" name="message" id="message"
 									placeholder="Enter Messege" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Enter Messege'" required=""></textarea>
 							</div>
@@ -157,14 +157,14 @@
 	</section>
 
 	<div id="footer-placeholder"></div>
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>;
+	<script src="./mail.js"></script>
 
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
 		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
 		crossorigin="anonymous"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
 	<script src="js/jquery.ajaxchimp.min.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/parallax.min.js"></script>
